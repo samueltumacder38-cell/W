@@ -4,617 +4,37 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Samuel Angelo Tumacder | Game Developer & 3D Modeler</title>
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<style>
-  /* Reset & base */
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #0f0f0f;
-    color: #f0f0f0;
-    overflow-x: hidden;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-  }
-
-   /* HERO SECTION */
-  .hero {
-    background-color: #000;
-    position: relative;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 0 10%;
-    overflow: hidden;
-  }
-
-  .hero-content {
-    max-width: 520px;
-    z-index: 2;
-    position: relative;
-    color: white;
-    animation: fadeInUp 1.2s ease;
-    padding: 32px;
-    border-radius: 12px;
-    background: transparent;
-  }
-  .hero-content h1 {
-    font-size: 3rem;
-    font-weight: 700;
-    line-height: 1.1;
-    margin-bottom: 0.3rem;
-  }
-  .hero-content h2 {
-    color: #00adb5;
-    font-weight: 400;
-    font-size: 1.15rem;
-    margin-bottom: 1rem;
-  }
-  .hero-socials { margin-top: 12px; }
-  .hero-socials a { margin-right: 16px; font-size: 1.2rem; color: #f0f0f0; transition: color 0.25s; }
-  .hero-socials a:hover { color: #00adb5; }
-
-  .hero-cta {
-    margin-top: 18px;
-    display:flex;
-    gap:12px;
-    align-items:center;
-  }
-  .btn {
-    background: linear-gradient(90deg,#00adb5,#008b8f);
-    color: #071017;
-    border: none;
-    padding: 10px 18px;
-    border-radius: 10px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: transform .18s ease, box-shadow .18s ease;
-  }
-  .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,173,181,0.18); }
-
-  /* sections fade in on scroll */
-  section { opacity: 0; transform: translateY(50px); transition: opacity 1s ease, transform 1s ease; }
-  section.visible { opacity: 1; transform: translateY(0); }
-
-  /* ABOUT */
-  #about {
-    padding: 6.5rem 10% 5.5rem;
-    background-color: #141414;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2.75rem;
-    flex-wrap: wrap;
-    scroll-margin-top: 100px;
-  }
-  .about-img img {
-    width: 340px;
-    border: 8px solid #00adb5;
-    border-radius: 10px;
-    padding: 6px;
-    display:block;
-  }
-  .about-text { max-width: 600px; }
-  .about-text h2 { font-size: 2rem; color: #00adb5; margin-bottom: 1rem; }
-  .about-text h3 { font-size: 1.15rem; color: #fff; margin-bottom: 1rem; line-height: 1.5; }
-  .about-text p { color: #ccc; margin-bottom: 1rem; line-height: 1.6; }
-  .about-text ul { list-style: none; margin-top:10px; }
-  .about-text ul li { margin-bottom: 0.5rem; color: #ddd; }
-  .about-text ul li::before { content: "✔ "; color: #00adb5; }
-
-  /* PORTFOLIO */
-  #portfolio {
-    position: relative;
-    padding: 6.5rem 10%;
-    background: radial-gradient(ellipse at bottom, #0b0b12 0%, #050509 80%);
-    text-align: center;
-    scroll-margin-top: 100px;
-    overflow: hidden;
-    min-height: 480px;
-    color: #f0f0f0;
-  }
-  #portfolio h3 {
-    color: #00adb5;
-    margin-bottom: 2rem;
-    font-size: 2rem;
-    position: relative;
-    z-index: 2;
-  }
-  .portfolio-category {
-    color: #00adb5;
-    font-size: 1.4rem;
-    margin-top: 2.5rem;
-    margin-bottom: 1.5rem;
-    position: relative;
-    z-index: 2;
-  }
-  .portfolio-gallery {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    position: relative;
-    z-index: 2;
-  }
-  .portfolio-item {
-    position: relative;
-    width: 350px;
-    height: 220px;
-    border-radius: 12px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background: rgba(20,20,20,0.6);
-    border: 1px solid rgba(255,255,255,0.06);
-  }
-  .portfolio-item:hover { transform: scale(1.05); box-shadow: 0 0 15px rgba(0, 173, 181, 0.25); }
-  .portfolio-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .overlay {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 173, 181, 0.85);
-    opacity: 0;
-    color: #fff;
-    display: flex; flex-direction: column; justify-content: center; align-items: center;
-    transition: opacity 0.4s ease;
-  }
-  .portfolio-item:hover .overlay { opacity: 1; }
-  .overlay h4 { font-size: 1.2rem; margin-bottom: 0.5rem; }
-  .overlay p { font-size: 0.9rem; }
-
-  /* Video items */
-  .video-item {
-    background: #000;
-  }
-  .video-item video {
-    display: block;
-  }
-  .video-item:hover video {
-    opacity: 0.7;
-  }
-
-  /* Game Project Section */
-  .game-project-section {
-    text-align: center;
-    padding: 3rem 2rem;
-    background: rgba(0, 173, 181, 0.08);
-    border-radius: 12px;
-    border: 1px solid rgba(0, 173, 181, 0.2);
-    margin: 2rem auto;
-    max-width: 900px;
-    position: relative;
-    z-index: 2;
-  }
-
-  .game-project-section p {
-    font-weight: 500;
-  }
-
-  .game-project-section strong {
-    color: #00adb5;
-  }
-  /* AWARDS SECTION */
-  .awards-section {
-    text-align: center;
-    margin-top: 3rem;
-    position: relative;
-    z-index: 2;
-  }
-
-  .awards-container {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-    margin-top: 2rem;
-    flex-direction: row;
-  }
-
-  .award-card {
-    position: relative;
-    width: 280px;
-    padding: 1.5rem;
-    background: linear-gradient(135deg, rgba(0, 173, 181, 0.1), rgba(0, 255, 198, 0.05));
-    border: 2px solid #00adb5;
-    border-radius: 15px;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 20px rgba(0, 173, 181, 0.2), inset 0 0 20px rgba(0, 173, 181, 0.05);
-  }
-
-  .award-card::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(0, 255, 198, 0.1), transparent);
-    animation: shimmer 3s infinite;
-    pointer-events: none;
-  }
-
-  @keyframes shimmer {
-    0% { transform: translate(-100%, -100%); }
-    100% { transform: translate(100%, 100%); }
-  }
-
-  .award-card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 15px 40px rgba(0, 173, 181, 0.4), inset 0 0 20px rgba(0, 173, 181, 0.1);
-    border-color: #00fff6;
-  }
-
-  .award-image-container {
-    position: relative;
-    width: 100%;
-    height: 220px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem;
-    background: rgba(10, 10, 20, 0.5);
-    border-radius: 10px;
-    overflow: hidden;
-    z-index: 1;
-  }
-
-  .award-image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    filter: drop-shadow(0 0 10px rgba(0, 173, 181, 0.3));
-    transition: transform 0.3s ease, filter 0.3s ease;
-  }
-
-  .award-card:hover .award-image-container img {
-    transform: scale(1.1);
-    filter: drop-shadow(0 0 20px rgba(0, 255, 198, 0.5));
-  }
-
-  .award-title {
-    color: #00fff6;
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    text-shadow: 0 0 10px rgba(0, 173, 181, 0.3);
-  }
-
-  .award-year {
-    color: #00adb5;
-    font-size: 0.95rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-
-
-  /* TOOLS */
-  .tools-title {
-    margin-top: 4.5rem;
-    color: #00adb5;
-    font-size: 2rem;
-    text-align: center;
-    font-weight: 700;
-    text-shadow: 0 0 10px rgba(8,243,255,0.25);
-    position: relative;
-    z-index: 2;
-  }
-  .tool-grid {
-    display: flex; justify-content: center; gap: 1.25rem; margin-top: 2rem; flex-wrap: wrap;
-    position: relative; z-index: 2;
-  }
-  .tool-card {
-    background: linear-gradient(45deg, #00adb5, #006666, #00ffc6);
-    background-size: 300% 300%;
-    animation: gradientShift 4s ease infinite;
-    padding: 1.6rem;
-    width: 230px;
-    border-radius: 12px;
-    color: white;
-    text-align: center;
-    box-shadow: 0 0 15px rgba(0,173,181,0.2);
-    transition: transform 0.3s ease;
-  }
-  .tool-card img.tool-img {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-    margin-bottom: 0.75rem;
-    filter: drop-shadow(0 0 8px rgba(0,173,181,0.3));
-    transition: transform 0.25s ease, filter 0.25s ease;
-  }
-  .tool-card:hover img.tool-img { transform: scale(1.08); filter: drop-shadow(0 0 14px rgba(0,0,0,0.6)); }
-  .tool-card:hover { transform: translateY(-8px); }
-
-  @keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-
-  /* CONTACT */
-  #contact {
-    background-color: #141414;
-    padding: 6.5rem 10%;
-    text-align: center;
-    scroll-margin-top: 100px;
-  }
-  #contact h2 { color: #00adb5; font-size: 2rem; margin-bottom: 0.5rem; }
-  #contact p { color: #ccc; margin-bottom: 2rem; font-size: 1rem; }
-  .contact-container {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-  .info-box {
-    background: #1c1c1c;
-    border-radius: 10px;
-    padding: 1.25rem;
-    width: 260px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: 0.25s;
-  }
-  .info-box:hover { box-shadow: 0 0 10px rgba(0,173,181,0.2); transform: translateY(-6px); }
-  .info-box i { font-size: 1.4rem; color: #00adb5; margin-bottom: 8px; }
-  .info-box h4 { color: #00adb5; margin-bottom: 6px; font-size: 1.1rem; }
-  .info-box p { color: #ccc; font-size: 0.95rem; }
-
-  /* FOOTER */
-  footer {
-    text-align: center;
-    padding: 1.5rem 0;
-    margin-top: 2.5rem;
-    font-size: 0.9rem;
-    color: #999;
-    border-top: 0.5px solid #333;
-    background-color: #0f0f0f;
-    line-height: 1.5;
-  }
-
-  /* Dock Navigation */
-  .dock-nav {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 1rem;
-    background: rgba(10, 10, 10, 0.95);
-    border: 1px solid #222;
-    border-radius: 1rem;
-    padding: 0.6rem 1.2rem;
-    box-shadow: 0 0 20px rgba(0, 173, 181, 0.2);
-    z-index: 1000;
-    backdrop-filter: blur(8px);
-  }
-  .dock-item {
-    position: relative;
-    width: 45px;
-    height: 45px;
-    background: #060010;
-    border: 1px solid #222;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
-    cursor: pointer;
-    color: #fff;
-  }
-  .dock-item:hover { background: #0a001f; transform: scale(1.15); box-shadow: 0 0 12px #00adb5; }
-  .dock-item.active {
-    background: radial-gradient(circle at center, #00adb5 0%, #060010 70%);
-    color: #fff;
-    box-shadow: 0 0 25px rgba(0, 173, 181, 0.6);
-    transform: scale(1.2);
-    animation: pulseGlow 1.5s infinite ease-in-out;
-  }
-  @keyframes pulseGlow {
-    0% { box-shadow: 0 0 15px rgba(0, 173, 181, 0.3); }
-    50% { box-shadow: 0 0 25px rgba(0, 173, 181, 0.6); }
-    100% { box-shadow: 0 0 15px rgba(0, 173, 181, 0.3); }
-  }
-  .dock-item::after {
-    content: attr(data-label);
-    position: absolute;
-    bottom: -34px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #060010;
-    border: 1px solid #222;
-    padding: 4px 8px;
-    border-radius: 6px;
-    color: #fff;
-    font-size: 0.75rem;
-    opacity: 0;
-    transition: opacity 0.18s ease, transform 0.18s ease;
-    pointer-events: none;
-    white-space: nowrap;
-  }
-  .dock-item:hover::after { opacity: 1; transform: translateX(-50%) translateY(5px); }
-
-  /* Responsive */
-  @media (max-width: 900px) {
-    .hero-content { max-width: 360px; padding: 20px; }
-    .hero-content h1 { font-size: 2.2rem; }
-    .portfolio-item { width: 320px; height: 200px; }
-  }
-  @media (max-width: 580px) {
-    .dock-nav { top: 12px; gap: 0.5rem; padding: 0.5rem 0.8rem; }
-    .dock-item { width: 40px; height: 40px; }
-    .about-img img { width: 260px; }
-    .tool-card { width: 200px; }
-  }
-
-  @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
-
-
-  /* MODAL STYLES */
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 2000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.95);
-    animation: fadeIn 0.3s ease;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  .modal.show {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .modal-content {
-    position: relative;
-    background-color: #1a1a1a;
-    border-radius: 12px;
-    border: 1px solid #333;
-    max-width: 800px;
-    width: 90%;
-    max-height: 90vh;
-    overflow-y: auto;
-    box-shadow: 0 0 30px rgba(0, 173, 181, 0.3);
-    animation: slideIn 0.3s ease;
-  }
-
-  @keyframes slideIn {
-    from {
-      opacity: 0;
-      transform: scale(0.95);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-
-  .modal-close {
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    font-size: 28px;
-    font-weight: bold;
-    color: #00adb5;
-    cursor: pointer;
-    z-index: 2001;
-    transition: color 0.25s ease, transform 0.25s ease;
-  }
-
-  .modal-close:hover {
-    color: #fff;
-    transform: scale(1.2);
-  }
-
-  #modalImage {
-    width: 100%;
-    height: auto;
-    display: none;
-    border-radius: 12px 12px 0 0;
-    object-fit: contain;
-    max-height: 60vh;
-  }
-
-  #modalVideo {
-    width: 100%;
-    height: auto;
-    display: none;
-    border-radius: 12px 12px 0 0;
-    max-height: 60vh;
-  }
-
-  #modalVideo.show {
-    display: block;
-  }
-
-  #modalImage.show {
-    display: block;
-  }
-
-  .modal-info {
-    padding: 2rem;
-    text-align: center;
-    border-top: 1px solid #333;
-  }
-
-  /* Modal arrows */
-  .modal-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 54px;
-    height: 54px;
-    border-radius: 50%;
-    background: rgba(0,0,0,0.5);
-    border: 2px solid rgba(0,173,181,0.15);
-    color: #00adb5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    cursor: pointer;
-    z-index: 2002;
-    transition: transform .18s ease, background .18s ease, box-shadow .18s ease;
-  }
-  .modal-arrow:hover { transform: translateY(-50%) scale(1.08); background: rgba(0,0,0,0.7); box-shadow: 0 6px 18px rgba(0,173,181,0.18); }
-  .modal-prev { left: 12px; }
-  .modal-next { right: 12px; }
-
-  .modal-info h4 {
-    color: #00adb5;
-    font-size: 1.4rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .modal-info p {
-    color: #ccc;
-    font-size: 1rem;
-    line-height: 1.6;
-  }
-
-  @media (max-width: 580px) {
-    .modal-content {
-      width: 95%;
-      max-height: 95vh;
-    }
-    .modal-close {
-      right: 15px;
-      top: 15px;
-      font-size: 24px;
-    }
-    .modal-info {
-      padding: 1.5rem;
-    }
-  }
-</style>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <!-- Dock Navigation -->
 <nav class="dock-nav" aria-label="Primary">
-  <div class="dock-item active" data-label="Home" onclick="scrollToSection('home', event)"><i class="fas fa-home"></i></div>
-  <div class="dock-item" data-label="About" onclick="scrollToSection('about', event)"><i class="fas fa-user"></i></div>
-  <div class="dock-item" data-label="Portfolio" onclick="scrollToSection('portfolio', event)"><i class="fas fa-briefcase"></i></div>
-  <div class="dock-item" data-label="Contact" onclick="scrollToSection('contact', event)"><i class="fas fa-envelope"></i></div>
+  <div class="dock-item active" data-label="Home" data-scroll-target="home" role="button" tabindex="0">
+    <i class="fas fa-home" aria-hidden="true"></i>
+    <span class="dock-label">Home</span>
+  </div>
+  <div class="dock-item" data-label="About" data-scroll-target="about" role="button" tabindex="0">
+    <i class="fas fa-user" aria-hidden="true"></i>
+    <span class="dock-label">About</span>
+  </div>
+  <div class="dock-item" data-label="Portfolio" data-scroll-target="portfolio" role="button" tabindex="0">
+    <i class="fas fa-briefcase" aria-hidden="true"></i>
+    <span class="dock-label">Portfolio</span>
+  </div>
+  <div class="dock-item" data-label="Contact" data-scroll-target="contact" role="button" tabindex="0">
+    <i class="fas fa-envelope" aria-hidden="true"></i>
+    <span class="dock-label">Contact</span>
+  </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero" id="home" aria-labelledby="home-title">
+  <canvas class="hero-particles" aria-hidden="true"></canvas>
   <div class="hero-content" role="region" aria-label="Intro">
     <h1 id="home-title">Samuel Angelo<br>Tumacder</h1>
     <h2>I'm <span class="typed" aria-live="polite"></span></h2>
@@ -626,8 +46,8 @@
     </div>
 
     <div class="hero-cta">
-      <button class="btn" onclick="scrollToSection('about', event)">Learn More</button>
-      <a class="btn" href="#portfolio" onclick="scrollToSection('portfolio', event)" style="text-decoration:none;">View Portfolio</a>
+      <button class="btn" data-scroll-target="about">Learn More</button>
+      <a class="btn" href="#portfolio" data-scroll-target="portfolio" style="text-decoration:none;">View Portfolio</a>
     </div>
   </div>
 </section>
@@ -646,6 +66,19 @@
       <li>Story integration with visual design</li>
       <li>3D asset creation & optimization</li>
     </ul>
+    <div class="about-actions">
+      <a class="btn" href="about/Tumacder-Resume.pdf" target="_blank" rel="noopener">Download Resume</a>
+      <button class="certificate-card" type="button" role="button" aria-label="Zoom Autodesk Maya Certificate"
+        data-certificate-image="about/maya_cert.jpg"
+        data-certificate-title="Autodesk Maya Certification"
+        data-certificate-description="Completed Maya coursework & official skills validation.">
+        <img src="about/maya_cert.jpg" alt="Autodesk Maya certificate thumbnail">
+        <div>
+          <h4>Autodesk Maya Certification</h4>
+          <p>Completed Maya coursework & official skills validation.</p>
+        </div>
+      </button>
+    </div>
   </div>
 </section>
 
@@ -653,6 +86,7 @@
 
 <!-- PORTFOLIO -->
 <section id="portfolio">
+  <div class="portfolio-inner">
   <h3>Portfolio</h3>
 
   <h4 class="portfolio-category">3D Projects</h4>
@@ -683,49 +117,52 @@
     </div>
   </div>
 
-  <h4 class="portfolio-category">2D Projects</h4>
+  <h4 class="portfolio-category">2D Character Sprites</h4>
   <div class="portfolio-gallery" aria-live="polite">
-    <div class="portfolio-item" tabindex="0" aria-label="2D Project - pixilart-sprite (3)">
+    <div class="portfolio-item" tabindex="0" aria-label="2D Character - pixilart-sprite (3)">
       <img src="2d/pixilart-sprite (3).png" alt="pixilart-sprite (3)">
       <div class="overlay"><h4>pixilart-sprite (3)</h4><p>2D Art</p></div>
     </div>
 
-    <div class="portfolio-item" tabindex="0" aria-label="2D Project - character walking">
-      <img src="2d/character walking.png" alt="character walking">
-      <div class="overlay"><h4>character walking</h4><p>2D Sprite</p></div>
+    <div class="portfolio-item" tabindex="0" aria-label="2D Character - Character Walking">
+      <img src="2d/character walking/Character walking.png" alt="Character walking sprite">
+      <div class="overlay"><h4>Character walking</h4><p>2D Sprite</p></div>
     </div>
 
-    <div class="portfolio-item" tabindex="0" aria-label="2D Project - pixilart-sprite__1_-removebg-preview">
-      <img src="2d/idle/pixilart-sprite__1_-removebg-preview.png" alt="pixilart-sprite__1_-removebg-preview">
-      <div class="overlay"><h4>pixilart-sprite__1_-removebg-preview</h4><p>2D Sprite</p></div>
+    <div class="portfolio-item" tabindex="0" aria-label="2D Character - Idle Sprite">
+      <img src="2d/idle/Idle.png" alt="Idle sprite">
+      <div class="overlay"><h4>Idle sprite</h4><p>2D Sprite</p></div>
     </div>
 
-    <div class="portfolio-item" tabindex="0" aria-label="2D Project - pixilart-sprite (4)">
-      <img src="2d/damage/pixilart-sprite (4).png" alt="pixilart-sprite (4)">
-      <div class="overlay"><h4>pixilart-sprite (4)</h4><p>2D Sprite</p></div>
+    <div class="portfolio-item" tabindex="0" aria-label="2D Character - Damage Sprite">
+      <img src="2d/damage/Damage.png" alt="Damage sprite">
+      <div class="overlay"><h4>Damage sprite</h4><p>2D Sprite</p></div>
     </div>
 
-    <div class="portfolio-item" tabindex="0" aria-label="2D Project - pixilart-sprite__2_-removebg-preview">
-      <img src="2d/death/pixilart-sprite__2_-removebg-preview.png" alt="pixilart-sprite__2_-removebg-preview">
-      <div class="overlay"><h4>pixilart-sprite__2_-removebg-preview</h4><p>2D Sprite</p></div>
+    <div class="portfolio-item" tabindex="0" aria-label="2D Character - Death Sprite">
+      <img src="2d/death/Death.png" alt="Death sprite">
+      <div class="overlay"><h4>Death sprite</h4><p>2D Sprite</p></div>
     </div>
+  </div>
 
-    <div class="portfolio-item" tabindex="0" aria-label="2D Project - Front walk spritesheet">
+  <h4 class="portfolio-category">2D Sprite Sheets</h4>
+  <div class="portfolio-gallery" aria-live="polite">
+    <div class="portfolio-item" tabindex="0" aria-label="2D Sprite Sheet - Front walk">
       <img src="2d/drive-download-20251120T135325Z-1-001/Front walk spritesheet.png" alt="Front walk spritesheet">
       <div class="overlay"><h4>Front walk spritesheet</h4><p>2D Spritesheet</p></div>
     </div>
 
-    <div class="portfolio-item" tabindex="0" aria-label="2D Project - back walk spritesheet">
+    <div class="portfolio-item" tabindex="0" aria-label="2D Sprite Sheet - Back walk">
       <img src="2d/drive-download-20251120T135325Z-1-001/back walk spritesheet.png" alt="back walk spritesheet">
       <div class="overlay"><h4>back walk spritesheet</h4><p>2D Spritesheet</p></div>
     </div>
 
-    <div class="portfolio-item" tabindex="0" aria-label="2D Project - left walk spritesheet">
+    <div class="portfolio-item" tabindex="0" aria-label="2D Sprite Sheet - Left walk">
       <img src="2d/drive-download-20251120T135325Z-1-001/left walk spritesheet.png" alt="left walk spritesheet">
       <div class="overlay"><h4>left walk spritesheet</h4><p>2D Spritesheet</p></div>
     </div>
 
-    <div class="portfolio-item" tabindex="0" aria-label="2D Project - idle spritesheet">
+    <div class="portfolio-item" tabindex="0" aria-label="2D Sprite Sheet - Idle">
       <img src="2d/drive-download-20251120T135325Z-1-001/idle spritesheet.png" alt="idle spritesheet">
       <div class="overlay"><h4>idle spritesheet</h4><p>2D Spritesheet</p></div>
     </div>
@@ -746,14 +183,14 @@
 
   <h4 class="portfolio-category">Game Project</h4>
   <div class="game-project-section">
-    <h4 style="color: #00adb5; margin-bottom: 1rem;">Game Development & Animation Showcase</h4>
-    <p style="color: #ccc; margin-bottom: 1.5rem; line-height: 1.6; max-width: 800px;">
+    <h4 class="game-project-title">Game Development & Animation Showcase</h4>
+    <p class="game-project-copy">
       In this game project, I served as the <strong>Game Developer</strong>, <strong>3D Modeler</strong>, and <strong>Animation Specialist</strong>. 
       I created and implemented all 3D models, designed animations, developed gameplay mechanics, and handled the overall technical implementation. 
       Watch the playlist below to see the complete project showcase and development process.
     </p>
-    <a href="https://www.youtube.com/playlist?list=PLJqgAlQY92wBL4NHupxFci5HX11edLQ0M" target="_blank" class="btn" style="display: inline-block;">
-      <i class="fab fa-youtube" style="margin-right: 8px;"></i>View Game Playlist
+    <a href="https://www.youtube.com/playlist?list=PLJqgAlQY92wBL4NHupxFci5HX11edLQ0M" target="_blank" class="btn game-project-cta">
+      <i class="fab fa-youtube"></i>View Game Playlist
     </a>
 
     <div class="awards-section">
@@ -783,6 +220,7 @@
       <h4>PixilArt</h4>
       <p>2D pixels design</p>
     </div>
+  </div>
   </div>
 </section>
 
@@ -831,247 +269,6 @@
   © 2025 Samuel Angelo Tumacder — All Rights Reserved
 </footer>
 
-<script>
-  /* Typing animation */
-  const words = ["a Game Developer", "a 3D Modeler", "a 2D Artist"];
-  let wi = 0, ci = 0, current = "", deleting = false;
-  function typeEffect() {
-    const el = document.querySelector(".typed");
-    if (!el) return;
-    const word = words[wi];
-    if (!deleting) {
-      current = word.substring(0, ++ci);
-      el.textContent = current;
-      if (ci === word.length) {
-        deleting = true;
-        setTimeout(typeEffect, 1200);
-        return;
-      }
-    } else {
-      current = word.substring(0, --ci);
-      el.textContent = current;
-      if (ci === 0) {
-        deleting = false;
-        wi = (wi + 1) % words.length;
-      }
-    }
-    setTimeout(typeEffect, deleting ? 50 : 90);
-  }
-  document.addEventListener("DOMContentLoaded", typeEffect);
-
-  /* Scroll animations for sections */
-  const sections = document.querySelectorAll("section");
-  function revealOnScroll(){
-    const trigger = window.innerHeight * 0.82;
-    sections.forEach(sec => {
-      const top = sec.getBoundingClientRect().top;
-      if (top < trigger) sec.classList.add("visible");
-    });
-  }
-  window.addEventListener("scroll", revealOnScroll);
-  window.addEventListener("load", revealOnScroll);
-
-  /* Dock navigation - scroll and active state */
-  function scrollToSection(id, e) {
-    if (e && e.preventDefault) e.preventDefault();
-    const target = document.getElementById(id);
-    if (!target) return;
-    // scroll
-    target.scrollIntoView({ behavior: "smooth", block: "start" });
-    // update active class
-    document.querySelectorAll(".dock-item").forEach(el => el.classList.remove("active"));
-    // when called from click, event.currentTarget is the clicked dock item
-    if (e && e.currentTarget && e.currentTarget.classList) {
-      e.currentTarget.classList.add("active");
-    } else {
-      // fallback: set the right dock-item by matching data-label -> id
-      const map = { Home: "home", About: "about", Portfolio: "portfolio", Contact: "contact" };
-      document.querySelectorAll(".dock-item").forEach(el => {
-        const lbl = el.getAttribute("data-label") || "";
-        if (map[lbl] === id) el.classList.add("active");
-      });
-    }
-  }
-
-  function updateDockActiveOnScroll() {
-  let current = "home";
-  const scrollY = window.scrollY + window.innerHeight / 2;
-
-  sections.forEach(sec => {
-    const top = sec.offsetTop;
-    const bottom = sec.offsetTop + sec.offsetHeight;
-    if (scrollY >= top && scrollY < bottom) {
-      current = sec.id;
-    }
-  });
-
-  document.querySelectorAll(".dock-item").forEach(el => {
-    const label = el.getAttribute("data-label").toLowerCase();
-    el.classList.toggle("active", label === current.toLowerCase());
-  });
-}
-
-
-  window.addEventListener("scroll", updateDockActiveOnScroll);
-  window.addEventListener("load", updateDockActiveOnScroll);
-
-  /* Make portfolio items keyboard focusable & open overlay on Enter */
-  document.querySelectorAll('.portfolio-item').forEach(item => {
-    item.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') item.click();
-    });
-    // Open modal on click — now supports gallery navigation
-    item.addEventListener('click', () => {
-      openGalleryAt(item);
-    });
-  });
-
-  // Category-aware gallery: will build items per category when user opens a modal
-  let currentGalleryItems = [];
-  let currentGalleryIndex = 0;
-
-  function getCategory(el) {
-    if (!el) return '';
-    if (el.classList && el.classList.contains('award-card')) return 'Awards';
-    const gallery = el.closest('.portfolio-gallery');
-    if (!gallery) return '';
-    const prev = gallery.previousElementSibling;
-    if (prev && prev.classList.contains('portfolio-category')) return prev.textContent.trim();
-    return '';
-  }
-
-  function buildGalleryForCategory(category) {
-    if (!category) return [];
-    if (category === 'Awards') {
-      return Array.from(document.querySelectorAll('.award-card'));
-    }
-    // find the gallery whose previous .portfolio-category matches the category text
-    const galleries = Array.from(document.querySelectorAll('.portfolio-gallery'));
-    for (const g of galleries) {
-      const prev = g.previousElementSibling;
-      if (prev && prev.classList.contains('portfolio-category') && prev.textContent.trim() === category) {
-        // include both image and video items
-        return Array.from(g.querySelectorAll('.portfolio-item'));
-      }
-    }
-    // fallback to all items
-    return Array.from(document.querySelectorAll('.portfolio-item'));
-  }
-
-  function getItemData(el) {
-    if (!el) return { src: '', title: '', desc: '' };
-    if (el.classList && el.classList.contains('award-card')) {
-      const img = el.querySelector('img');
-      const title = el.querySelector('.award-title')?.textContent || 'Award';
-      const desc = el.querySelector('.award-year')?.textContent || '';
-      return { src: img ? img.src : '', title, desc };
-    }
-    const overlay = el.querySelector('.overlay');
-    const title = overlay ? (overlay.querySelector('h4')?.textContent || '') : '';
-    const desc = overlay ? (overlay.querySelector('p')?.textContent || '') : '';
-    const isVideo = el.classList && el.classList.contains('video-item');
-    if (isVideo) {
-      const video = el.querySelector('video');
-      const src = video ? (video.querySelector('source')?.src || video.src) : '';
-      return { src, title, desc, isVideo: true };
-    }
-    const img = el.querySelector('img');
-    return { src: img ? img.src : '', title, desc, isVideo: false };
-  }
-
-  function openGalleryAt(element) {
-    const category = getCategory(element);
-    currentGalleryItems = buildGalleryForCategory(category);
-    currentGalleryIndex = currentGalleryItems.indexOf(element);
-    if (currentGalleryIndex === -1) currentGalleryIndex = 0;
-    showGalleryIndex(currentGalleryIndex);
-    const modal = document.getElementById('portfolioModal');
-    modal.classList.add('show');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function showGalleryIndex(index) {
-    if (!currentGalleryItems || currentGalleryItems.length === 0) return;
-    if (index < 0) index = currentGalleryItems.length - 1;
-    if (index >= currentGalleryItems.length) index = 0;
-    currentGalleryIndex = index;
-    const data = getItemData(currentGalleryItems[currentGalleryIndex]);
-    const modalImg = document.getElementById('modalImage');
-    const modalVideo = document.getElementById('modalVideo');
-    if (data.isVideo) {
-      const modalVideoSource = document.getElementById('modalVideoSource');
-      modalImg.classList.remove('show');
-      modalVideo.classList.add('show');
-      modalVideoSource.src = data.src;
-      modalVideo.pause();
-      modalVideo.currentTime = 0;
-      modalVideo.load();
-    } else {
-      modalVideo.classList.remove('show');
-      modalImg.classList.add('show');
-      modalImg.src = data.src;
-    }
-    document.getElementById('modalTitle').textContent = data.title || '';
-    document.getElementById('modalDescription').textContent = data.desc || '';
-  }
-
-  function prevGallery() { showGalleryIndex(currentGalleryIndex - 1); }
-  function nextGallery() { showGalleryIndex(currentGalleryIndex + 1); }
-
-  // Wire up modal prev/next buttons
-  const prevBtn = document.querySelector('.modal-prev');
-  const nextBtn = document.querySelector('.modal-next');
-  if (prevBtn && nextBtn) {
-    prevBtn.addEventListener('click', (e) => { e.stopPropagation(); prevGallery(); });
-    nextBtn.addEventListener('click', (e) => { e.stopPropagation(); nextGallery(); });
-  }
-
-  // Keyboard support for gallery navigation (left/right) and Esc to close
-  document.addEventListener('keydown', (e) => {
-    const modal = document.getElementById('portfolioModal');
-    if (!modal.classList.contains('show')) return;
-    if (e.key === 'ArrowLeft') { prevGallery(); }
-    if (e.key === 'ArrowRight') { nextGallery(); }
-  });
-
-  // Close modal functionality
-  const modal = document.getElementById('portfolioModal');
-  const closeBtn = document.querySelector('.modal-close');
-  
-  closeBtn.addEventListener('click', () => {
-    modal.classList.remove('show');
-    document.body.style.overflow = 'auto';
-  });
-
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.classList.remove('show');
-      document.body.style.overflow = 'auto';
-    }
-  });
-
-  // Close modal on Escape key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('show')) {
-      modal.classList.remove('show');
-      document.body.style.overflow = 'auto';
-    }
-  });
-
-  /* Ensure anchor/back links don't break active state */
-  document.addEventListener('click', (e) => {
-    const a = e.target.closest('a');
-    if (!a) return;
-    const hash = a.getAttribute('href') || '';
-    if (hash.startsWith('#')) {
-      const id = hash.slice(1);
-      // call scrollToSection with simulated event to set active
-      scrollToSection(id, { currentTarget: document.querySelector(`.dock-item[data-label="${capitalizeFirst(id)}"]`) });
-    }
-  });
-
-  function capitalizeFirst(s){ return s.charAt(0).toUpperCase()+s.slice(1); }
-
-</script>
+<script src="main.js"></script>
 </body>
 </html>
