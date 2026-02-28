@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
@@ -6,391 +6,268 @@
 <title>Samuel Angelo Tumacder | Game Developer & 3D Modeler</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<!-- ========== SCREEN: MAIN MENU (Title Screen) ========== -->
-<div id="screen-title" class="mc-screen active">
-  <canvas id="bgCanvas" class="mc-bg-canvas"></canvas>
-  <div class="mc-screen-inner">
-    <div class="mc-title-block">
-      <h1 class="mc-logo">SAMUEL ANGELO</h1>
-      <h2 class="mc-logo-sub">TUMACDER</h2>
-      <p class="mc-edition">Portfolio Edition</p>
-      <p class="mc-splash">Also try creativity!</p>
+<!-- Dock Navigation -->
+<nav class="dock-nav" aria-label="Primary">
+  <div class="dock-item active" data-label="Home" data-scroll-target="home" role="button" tabindex="0">
+    <i class="fas fa-home" aria-hidden="true"></i>
+    <span class="dock-label">Home</span>
+  </div>
+  <div class="dock-item" data-label="About" data-scroll-target="about" role="button" tabindex="0">
+    <i class="fas fa-user" aria-hidden="true"></i>
+    <span class="dock-label">About</span>
+  </div>
+  <div class="dock-item" data-label="Portfolio" data-scroll-target="portfolio" role="button" tabindex="0">
+    <i class="fas fa-briefcase" aria-hidden="true"></i>
+    <span class="dock-label">Portfolio</span>
+  </div>
+  <div class="dock-item" data-label="Contact" data-scroll-target="contact" role="button" tabindex="0">
+    <i class="fas fa-envelope" aria-hidden="true"></i>
+    <span class="dock-label">Contact</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home" aria-labelledby="home-title">
+  <canvas class="hero-particles" aria-hidden="true"></canvas>
+  <div class="hero-content" role="region" aria-label="Intro">
+    <h1 id="home-title">Samuel Angelo<br>Tumacder</h1>
+    <h2>I'm <span class="typed" aria-live="polite"></span></h2>
+
+    <div class="hero-socials" aria-hidden="false">
+      <a href="https://www.facebook.com/samuelangelo.tumacder/" title="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://github.com/samueltumacder38-cell" title="Github" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/samuel-tumacder-9ab697377" title="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
     </div>
-    <div class="mc-menu-buttons">
-      <button class="mc-btn mc-btn-full" data-goto="screen-worlds">Singleplayer</button>
-      <button class="mc-btn mc-btn-full" data-goto="screen-about">About Me</button>
-      <button class="mc-btn mc-btn-full" data-goto="screen-contact">Contact Me</button>
-    </div>
-    <div class="mc-title-footer">
-      <p class="mc-copyright">Samuel Angelo Tumacder &mdash; Game Developer & 3D Modeler</p>
-      <p class="mc-version">Portfolio v1.0.0</p>
+
+    <div class="hero-cta">
+      <button class="btn" data-scroll-target="about">Learn More</button>
+      <a class="btn" href="#portfolio" data-scroll-target="portfolio" style="text-decoration:none;">View Portfolio</a>
     </div>
   </div>
-  <div class="mc-dirt-bar"></div>
-</div>
+</section>
 
-<!-- ========== SCREEN: WORLD SELECTION ========== -->
-<div id="screen-worlds" class="mc-screen">
-  <div class="mc-screen-inner">
-    <h2 class="mc-screen-title">Select Project World</h2>
-
-    <div class="mc-search-bar">
-      <input type="text" id="worldSearch" placeholder="Search projects..." class="mc-search-input" />
-    </div>
-
-    <div class="mc-world-list" id="worldList">
-      <div class="mc-world-entry" data-goto="screen-portfolio" data-project-index="0" data-world-name="Washing Machine">
-        <div class="mc-world-icon"><img src="3d/Washing Machine.png" alt="Washing Machine"></div>
-        <div class="mc-world-info"><h3 class="mc-world-name">Washing Machine</h3><p class="mc-world-details">3D Project</p><p class="mc-world-meta">Creative Mode, Version: 1.0</p></div>
-      </div>
-
-      <div class="mc-world-entry" data-goto="screen-portfolio" data-project-index="1" data-world-name="Jetpack">
-        <div class="mc-world-icon"><img src="3d/Jetpack.png" alt="Jetpack"></div>
-        <div class="mc-world-info"><h3 class="mc-world-name">Jetpack</h3><p class="mc-world-details">3D Project</p><p class="mc-world-meta">Creative Mode, Version: 1.0</p></div>
-      </div>
-
-      <div class="mc-world-entry" data-goto="screen-portfolio" data-project-index="2" data-world-name="Wall design">
-        <div class="mc-world-icon"><img src="3d/Wall design.png" alt="Wall design"></div>
-        <div class="mc-world-info"><h3 class="mc-world-name">Wall design</h3><p class="mc-world-details">3D Design</p><p class="mc-world-meta">Creative Mode, Version: 1.0</p></div>
-      </div>
-
-      <div class="mc-world-entry" data-goto="screen-portfolio" data-project-index="3" data-world-name="Airplane">
-        <div class="mc-world-icon"><img src="3d/Airplane.png" alt="Airplane"></div>
-        <div class="mc-world-info"><h3 class="mc-world-name">Airplane</h3><p class="mc-world-details">3D Design</p><p class="mc-world-meta">Creative Mode, Version: 1.0</p></div>
-      </div>
-
-      <div class="mc-world-entry" data-goto="screen-portfolio" data-project-index="4" data-world-name="Chessboard">
-        <div class="mc-world-icon"><img src="3d/Chessboard.png" alt="Chessboard"></div>
-        <div class="mc-world-info"><h3 class="mc-world-name">Chessboard</h3><p class="mc-world-details">3D Project</p><p class="mc-world-meta">Creative Mode, Version: 1.0</p></div>
-      </div>
-
-      <div class="mc-world-entry" data-goto="screen-portfolio" data-project-index="5" data-world-name="pixilart-sprite (3)">
-        <div class="mc-world-icon"><img src="2d/pixilart-sprite (3).png" alt="pixilart-sprite (3)"></div>
-        <div class="mc-world-info"><h3 class="mc-world-name">pixilart-sprite (3)</h3><p class="mc-world-details">2D Art</p><p class="mc-world-meta">Survival Mode, Version: 1.0</p></div>
-      </div>
-
-      <div class="mc-world-entry" data-goto="screen-portfolio" data-project-index="6" data-world-name="Character walking">
-        <div class="mc-world-icon"><img src="2d/character walking/Character walking.png" alt="Character walking"></div>
-        <div class="mc-world-info"><h3 class="mc-world-name">Character walking</h3><p class="mc-world-details">2D Sprite</p><p class="mc-world-meta">Survival Mode, Version: 1.0</p></div>
-      </div>
-
-      <div class="mc-world-entry" data-goto="screen-portfolio" data-project-index="7" data-world-name="Idle sprite">
-        <div class="mc-world-icon"><img src="2d/idle/Idle.png" alt="Idle sprite"></div>
-        <div class="mc-world-info"><h3 class="mc-world-name">Idle sprite</h3><p class="mc-world-details">2D Sprite</p><p class="mc-world-meta">Survival Mode, Version: 1.0</p></div>
-      </div>
-
-      <div class="mc-world-entry" data-goto="screen-portfolio" data-project-index="8" data-world-name="Damage sprite">
-        <div class="mc-world-icon"><img src="2d/damage/Damage.png" alt="Damage sprite"></div>
-        <div class="mc-world-info"><h3 class="mc-world-name">Damage sprite</h3><p class="mc-world-details">2D Sprite</p><p class="mc-world-meta">Survival Mode, Version: 1.0</p></div>
-      </div>
-
-      <div class="mc-world-entry" data-goto="screen-portfolio" data-project-index="9" data-world-name="Death sprite">
-        <div class="mc-world-icon"><img src="2d/death/Death.png" alt="Death sprite"></div>
-        <div class="mc-world-info"><h3 class="mc-world-name">Death sprite</h3><p class="mc-world-details">2D Sprite</p><p class="mc-world-meta">Survival Mode, Version: 1.0</p></div>
-      </div>
-
-      <div class="mc-world-entry" data-goto="screen-portfolio" data-project-index="10" data-world-name="Front walk spritesheet">
-        <div class="mc-world-icon"><img src="2d/drive-download-20251120T135325Z-1-001/Front walk spritesheet.png" alt="Front walk spritesheet"></div>
-        <div class="mc-world-info"><h3 class="mc-world-name">Front walk spritesheet</h3><p class="mc-world-details">2D Spritesheet</p><p class="mc-world-meta">Adventure Mode, Version: 1.0</p></div>
-      </div>
-
-      <div class="mc-world-entry" data-goto="screen-portfolio" data-project-index="11" data-world-name="back walk spritesheet">
-        <div class="mc-world-icon"><img src="2d/drive-download-20251120T135325Z-1-001/back walk spritesheet.png" alt="back walk spritesheet"></div>
-        <div class="mc-world-info"><h3 class="mc-world-name">back walk spritesheet</h3><p class="mc-world-details">2D Spritesheet</p><p class="mc-world-meta">Adventure Mode, Version: 1.0</p></div>
-      </div>
-
-      <div class="mc-world-entry" data-goto="screen-portfolio" data-project-index="12" data-world-name="left walk spritesheet">
-        <div class="mc-world-icon"><img src="2d/drive-download-20251120T135325Z-1-001/left walk spritesheet.png" alt="left walk spritesheet"></div>
-        <div class="mc-world-info"><h3 class="mc-world-name">left walk spritesheet</h3><p class="mc-world-details">2D Spritesheet</p><p class="mc-world-meta">Adventure Mode, Version: 1.0</p></div>
-      </div>
-
-      <div class="mc-world-entry" data-goto="screen-portfolio" data-project-index="13" data-world-name="idle spritesheet">
-        <div class="mc-world-icon"><img src="2d/drive-download-20251120T135325Z-1-001/idle spritesheet.png" alt="idle spritesheet"></div>
-        <div class="mc-world-info"><h3 class="mc-world-name">idle spritesheet</h3><p class="mc-world-details">2D Spritesheet</p><p class="mc-world-meta">Adventure Mode, Version: 1.0</p></div>
-      </div>
-
-      <div class="mc-world-entry" data-goto="screen-portfolio" data-project-index="14" data-world-name="bounceACT">
-        <div class="mc-world-icon contact-icon"><i class="fas fa-film"></i></div>
-        <div class="mc-world-info"><h3 class="mc-world-name">bounceACT</h3><p class="mc-world-details">Animation</p><p class="mc-world-meta">Spectator Mode, Version: 1.0</p></div>
-      </div>
-
-      <div class="mc-world-entry" data-goto="screen-portfolio" data-project-index="15" data-world-name="lipadwithenvi_MIDTERM">
-        <div class="mc-world-icon contact-icon"><i class="fas fa-video"></i></div>
-        <div class="mc-world-info"><h3 class="mc-world-name">lipadwithenvi_MIDTERM</h3><p class="mc-world-details">Animation</p><p class="mc-world-meta">Spectator Mode, Version: 1.0</p></div>
-      </div>
-
-    </div>
-
-    <div class="mc-world-actions">
-      <div class="mc-btn-row">
-        <button class="mc-btn mc-btn-full" disabled>Click any project world to open</button>
-      </div>
-      <div class="mc-btn-row">
-        <button class="mc-btn mc-btn-full" data-goto="screen-title">Back</button>
-      </div>
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-img">
+    <img src="./about/image-removebg-preview.png" alt="Samuel Angelo Portrait">
+  </div>
+  <div class="about-text">
+    <h2>About Me</h2>
+    <h3>I'm a Game Developer, 3D Modeler, and 2D Artist passionate about immersive design.</h3>
+    <p>I create story-driven, interactive environments that blend creativity and technical precision. I enjoy iterating on gameplay systems, modeling high-quality assets, and delivering pixel-perfect UI and art assets.</p>
+    <ul>
+      <li>Focus on gameplay & worldbuilding</li>
+      <li>Story integration with visual design</li>
+      <li>3D asset creation & optimization</li>
+    </ul>
+    <div class="about-actions">
+      <a class="btn" href="about/Tumacder-Resume.pdf" target="_blank" rel="noopener">Download Resume</a>
+      <button class="certificate-card" type="button" role="button" aria-label="Zoom Autodesk Maya Certificate"
+        data-certificate-image="about/maya_cert.jpg"
+        data-certificate-title="Autodesk Maya Certification"
+        data-certificate-description="Completed Maya coursework & official skills validation.">
+        <img src="about/maya_cert.jpg" alt="Autodesk Maya certificate thumbnail">
+        <div>
+          <h4>Autodesk Maya Certification</h4>
+          <p>Completed Maya coursework & official skills validation.</p>
+        </div>
+      </button>
     </div>
   </div>
-  <div class="mc-dirt-bar"></div>
-</div>
+</section>
 
-<!-- ========== SCREEN: LOADING ========== -->
-<div id="screen-loading" class="mc-screen">
-  <div class="mc-screen-inner mc-loading-inner">
-    <h2 class="mc-loading-title">Loading world...</h2>
-    <div class="mc-loading-bar-track">
-      <div class="mc-loading-bar-fill" id="loadingBar"></div>
+
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="portfolio-inner">
+  <h3>Portfolio</h3>
+
+  <h4 class="portfolio-category">3D Projects</h4>
+  <div class="portfolio-gallery" aria-live="polite">
+    <div class="portfolio-item" tabindex="0" aria-label="3D Project - Washing Machine">
+      <img src="3d/Washing Machine.png" alt="Washing Machine">
+      <div class="overlay"><h4>Washing Machine</h4><p>3D Project</p></div>
     </div>
-    <p class="mc-loading-tip" id="loadingTip">Building terrain...</p>
-  </div>
-  <div class="mc-dirt-bar"></div>
-</div>
 
-<!-- ========== SCREEN: ABOUT ME ========== -->
-<div id="screen-about" class="mc-screen">
-  <div class="mc-screen-inner mc-content-screen">
-    <h2 class="mc-screen-title">About Me</h2>
-    <div class="mc-content-body">
-      <div class="mc-about-layout">
-        <div class="mc-about-portrait">
-          <img src="./about/image-removebg-preview.png" alt="Samuel Angelo Portrait">
-        </div>
-        <div class="mc-about-text">
-          <h3>I'm a Game Developer, 3D Modeler, and 2D Artist passionate about immersive design.</h3>
-          <p>I create story-driven, interactive environments that blend creativity and technical precision. I enjoy iterating on gameplay systems, modeling high-quality assets, and delivering pixel-perfect UI and art assets.</p>
-          <ul>
-            <li>Focus on gameplay &amp; worldbuilding</li>
-            <li>Story integration with visual design</li>
-            <li>3D asset creation &amp; optimization</li>
-          </ul>
-
-          <div class="mc-about-actions">
-            <a class="mc-btn" href="about/Tumacder-Resume.pdf" target="_blank" rel="noopener">Download Resume</a>
-          </div>
-
-          <div class="mc-cert-card" role="button" tabindex="0"
-            data-certificate-image="about/maya_cert.jpg"
-            data-certificate-title="Autodesk Maya Certification"
-            data-certificate-description="Completed Maya coursework & official skills validation.">
-            <img src="about/maya_cert.jpg" alt="Autodesk Maya certificate thumbnail">
-            <div>
-              <h4>Autodesk Maya Certification</h4>
-              <p>Completed Maya coursework &amp; official skills validation.</p>
-            </div>
-          </div>
-
-          <h3 class="mc-tools-heading">Tools I Use</h3>
-          <div class="mc-tool-grid">
-            <div class="mc-tool-card">
-              <img src="award/maya.png" alt="Maya Logo" class="mc-tool-img">
-              <h4>Maya</h4>
-              <p>3D Modeling</p>
-            </div>
-            <div class="mc-tool-card">
-              <img src="https://art.pixilart.com/5e77f66827e6fa5.png" alt="PixilArt Logo" class="mc-tool-img">
-              <h4>PixilArt</h4>
-              <p>2D Pixel Design</p>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="portfolio-item" tabindex="0" aria-label="3D Project - Jetpack">
+      <img src="3d/Jetpack.png" alt="Jetpack">
+      <div class="overlay"><h4>Jetpack</h4><p>3D Project</p></div>
     </div>
-    <div class="mc-screen-bottom-bar">
-      <button class="mc-btn" data-goto="screen-title">Done</button>
+
+    <div class="portfolio-item" tabindex="0" aria-label="3D Design- Wall design">
+      <img src="3d/Wall design.png" alt="Wall design">
+      <div class="overlay"><h4>Wall design</h4><p>3D Design</p></div>
+    </div>
+
+    <div class="portfolio-item" tabindex="0" aria-label="3D Project - Airplane">
+      <img src="3d/Airplane.png" alt="Airplane">
+      <div class="overlay"><h4>Airplane</h4><p>3D Design</p></div>
+    </div>
+
+    <div class="portfolio-item" tabindex="0" aria-label="3D Project - Chessboard">
+      <img src="3d/Chessboard.png" alt="Chessboard">
+      <div class="overlay"><h4>Chessboard</h4><p>3D Project</p></div>
     </div>
   </div>
-  <div class="mc-dirt-bar"></div>
-</div>
 
-<!-- ========== SCREEN: PORTFOLIO ========== -->
-<div id="screen-portfolio" class="mc-screen">
-  <div class="mc-screen-inner mc-content-screen">
-    <h2 class="mc-screen-title">Portfolio</h2>
-    <div class="mc-content-body">
-
-      <h4 class="mc-category">3D Projects</h4>
-      <div class="mc-gallery" aria-live="polite">
-        <div class="mc-gallery-item" tabindex="0" aria-label="3D Project - Washing Machine">
-          <img src="3d/Washing Machine.png" alt="Washing Machine">
-          <div class="mc-item-overlay"><h4>Washing Machine</h4><p>3D Project</p></div>
-        </div>
-        <div class="mc-gallery-item" tabindex="0" aria-label="3D Project - Jetpack">
-          <img src="3d/Jetpack.png" alt="Jetpack">
-          <div class="mc-item-overlay"><h4>Jetpack</h4><p>3D Project</p></div>
-        </div>
-        <div class="mc-gallery-item" tabindex="0" aria-label="3D Design - Wall design">
-          <img src="3d/Wall design.png" alt="Wall design">
-          <div class="mc-item-overlay"><h4>Wall design</h4><p>3D Design</p></div>
-        </div>
-        <div class="mc-gallery-item" tabindex="0" aria-label="3D Project - Airplane">
-          <img src="3d/Airplane.png" alt="Airplane">
-          <div class="mc-item-overlay"><h4>Airplane</h4><p>3D Design</p></div>
-        </div>
-        <div class="mc-gallery-item" tabindex="0" aria-label="3D Project - Chessboard">
-          <img src="3d/Chessboard.png" alt="Chessboard">
-          <div class="mc-item-overlay"><h4>Chessboard</h4><p>3D Project</p></div>
-        </div>
-      </div>
-
-      <h4 class="mc-category">2D Character Sprites</h4>
-      <div class="mc-gallery" aria-live="polite">
-        <div class="mc-gallery-item" tabindex="0">
-          <img src="2d/pixilart-sprite (3).png" alt="pixilart-sprite (3)">
-          <div class="mc-item-overlay"><h4>pixilart-sprite (3)</h4><p>2D Art</p></div>
-        </div>
-        <div class="mc-gallery-item" tabindex="0">
-          <img src="2d/character walking/Character walking.png" alt="Character walking sprite">
-          <div class="mc-item-overlay"><h4>Character walking</h4><p>2D Sprite</p></div>
-        </div>
-        <div class="mc-gallery-item" tabindex="0">
-          <img src="2d/idle/Idle.png" alt="Idle sprite">
-          <div class="mc-item-overlay"><h4>Idle sprite</h4><p>2D Sprite</p></div>
-        </div>
-        <div class="mc-gallery-item" tabindex="0">
-          <img src="2d/damage/Damage.png" alt="Damage sprite">
-          <div class="mc-item-overlay"><h4>Damage sprite</h4><p>2D Sprite</p></div>
-        </div>
-        <div class="mc-gallery-item" tabindex="0">
-          <img src="2d/death/Death.png" alt="Death sprite">
-          <div class="mc-item-overlay"><h4>Death sprite</h4><p>2D Sprite</p></div>
-        </div>
-      </div>
-
-      <h4 class="mc-category">2D Sprite Sheets</h4>
-      <div class="mc-gallery" aria-live="polite">
-        <div class="mc-gallery-item" tabindex="0">
-          <img src="2d/drive-download-20251120T135325Z-1-001/Front walk spritesheet.png" alt="Front walk spritesheet">
-          <div class="mc-item-overlay"><h4>Front walk spritesheet</h4><p>2D Spritesheet</p></div>
-        </div>
-        <div class="mc-gallery-item" tabindex="0">
-          <img src="2d/drive-download-20251120T135325Z-1-001/back walk spritesheet.png" alt="back walk spritesheet">
-          <div class="mc-item-overlay"><h4>back walk spritesheet</h4><p>2D Spritesheet</p></div>
-        </div>
-        <div class="mc-gallery-item" tabindex="0">
-          <img src="2d/drive-download-20251120T135325Z-1-001/left walk spritesheet.png" alt="left walk spritesheet">
-          <div class="mc-item-overlay"><h4>left walk spritesheet</h4><p>2D Spritesheet</p></div>
-        </div>
-        <div class="mc-gallery-item" tabindex="0">
-          <img src="2d/drive-download-20251120T135325Z-1-001/idle spritesheet.png" alt="idle spritesheet">
-          <div class="mc-item-overlay"><h4>idle spritesheet</h4><p>2D Spritesheet</p></div>
-        </div>
-      </div>
-
-      <h4 class="mc-category">Animations</h4>
-      <div class="mc-gallery" aria-live="polite">
-        <div class="mc-gallery-item mc-video-item" tabindex="0">
-          <video src="videos/bounceACT.mp4"></video>
-          <div class="mc-item-overlay"><h4>bounceACT</h4><p>Animation</p></div>
-        </div>
-        <div class="mc-gallery-item mc-video-item" tabindex="0">
-          <video src="videos/lipadwithenvi_MIDTERM.mp4"></video>
-          <div class="mc-item-overlay"><h4>lipadwithenvi_MIDTERM</h4><p>Animation</p></div>
-        </div>
-      </div>
-
+  <h4 class="portfolio-category">2D Character Sprites</h4>
+  <div class="portfolio-gallery" aria-live="polite">
+    <div class="portfolio-item" tabindex="0" aria-label="2D Character - pixilart-sprite (3)">
+      <img src="2d/pixilart-sprite (3).png" alt="pixilart-sprite (3)">
+      <div class="overlay"><h4>pixilart-sprite (3)</h4><p>2D Art</p></div>
     </div>
-    <div class="mc-screen-bottom-bar">
-      <button class="mc-btn" data-goto="screen-worlds">Done</button>
+
+    <div class="portfolio-item" tabindex="0" aria-label="2D Character - Character Walking">
+      <img src="2d/character walking/Character walking.png" alt="Character walking sprite">
+      <div class="overlay"><h4>Character walking</h4><p>2D Sprite</p></div>
+    </div>
+
+    <div class="portfolio-item" tabindex="0" aria-label="2D Character - Idle Sprite">
+      <img src="2d/idle/Idle.png" alt="Idle sprite">
+      <div class="overlay"><h4>Idle sprite</h4><p>2D Sprite</p></div>
+    </div>
+
+    <div class="portfolio-item" tabindex="0" aria-label="2D Character - Damage Sprite">
+      <img src="2d/damage/Damage.png" alt="Damage sprite">
+      <div class="overlay"><h4>Damage sprite</h4><p>2D Sprite</p></div>
+    </div>
+
+    <div class="portfolio-item" tabindex="0" aria-label="2D Character - Death Sprite">
+      <img src="2d/death/Death.png" alt="Death sprite">
+      <div class="overlay"><h4>Death sprite</h4><p>2D Sprite</p></div>
     </div>
   </div>
-  <div class="mc-dirt-bar"></div>
-</div>
 
-<!-- ========== SCREEN: GAME PROJECT ========== -->
-<div id="screen-gameproject" class="mc-screen">
-  <div class="mc-screen-inner mc-content-screen">
-    <h2 class="mc-screen-title">Game Project</h2>
-    <div class="mc-content-body">
+  <h4 class="portfolio-category">2D Sprite Sheets</h4>
+  <div class="portfolio-gallery" aria-live="polite">
+    <div class="portfolio-item" tabindex="0" aria-label="2D Sprite Sheet - Front walk">
+      <img src="2d/drive-download-20251120T135325Z-1-001/Front walk spritesheet.png" alt="Front walk spritesheet">
+      <div class="overlay"><h4>Front walk spritesheet</h4><p>2D Spritesheet</p></div>
+    </div>
 
-      <div class="mc-gp-section">
-        <h3 class="mc-gp-title">Game Development &amp; Animation Showcase</h3>
-        <p>
-          In this game project, I served as the <strong>Game Developer</strong>, <strong>3D Modeler</strong>, and <strong>Animation Specialist</strong>.
-          I created and implemented all 3D models, designed animations, developed gameplay mechanics, and handled the overall technical implementation.
-          Watch the playlist below to see the complete project showcase and development process.
-        </p>
-        <a href="https://www.youtube.com/playlist?list=PLJqgAlQY92wBL4NHupxFci5HX11edLQ0M" target="_blank" class="mc-btn mc-gp-cta">
-          <i class="fab fa-youtube"></i> View Game Playlist
-        </a>
-      </div>
+    <div class="portfolio-item" tabindex="0" aria-label="2D Sprite Sheet - Back walk">
+      <img src="2d/drive-download-20251120T135325Z-1-001/back walk spritesheet.png" alt="back walk spritesheet">
+      <div class="overlay"><h4>back walk spritesheet</h4><p>2D Spritesheet</p></div>
+    </div>
 
-      <h4 class="mc-category">Award</h4>
-      <div class="mc-award-container">
-        <div class="mc-award-card">
-          <div class="mc-award-img">
+    <div class="portfolio-item" tabindex="0" aria-label="2D Sprite Sheet - Left walk">
+      <img src="2d/drive-download-20251120T135325Z-1-001/left walk spritesheet.png" alt="left walk spritesheet">
+      <div class="overlay"><h4>left walk spritesheet</h4><p>2D Spritesheet</p></div>
+    </div>
+
+    <div class="portfolio-item" tabindex="0" aria-label="2D Sprite Sheet - Idle">
+      <img src="2d/drive-download-20251120T135325Z-1-001/idle spritesheet.png" alt="idle spritesheet">
+      <div class="overlay"><h4>idle spritesheet</h4><p>2D Spritesheet</p></div>
+    </div>
+  </div>
+
+  <h4 class="portfolio-category">Animations</h4>
+  <div class="portfolio-gallery" aria-live="polite">
+    <div class="portfolio-item video-item" tabindex="0" aria-label="Animation - bounceACT">
+      <video src="videos/bounceACT.mp4" style="width: 100%; height: 100%; object-fit: cover;"></video>
+      <div class="overlay"><h4>bounceACT</h4><p>Animation</p></div>
+    </div>
+
+    <div class="portfolio-item video-item" tabindex="0" aria-label="Animation - lipadwithenvi_MIDTERM">
+      <video src="videos/lipadwithenvi_MIDTERM.mp4" style="width: 100%; height: 100%; object-fit: cover;"></video>
+      <div class="overlay"><h4>lipadwithenvi_MIDTERM</h4><p>Animation</p></div>
+    </div>
+  </div>
+
+  <h4 class="portfolio-category">Game Project</h4>
+  <div class="game-project-section">
+    <h4 class="game-project-title">Game Development & Animation Showcase</h4>
+    <p class="game-project-copy">
+      In this game project, I served as the <strong>Game Developer</strong>, <strong>3D Modeler</strong>, and <strong>Animation Specialist</strong>. 
+      I created and implemented all 3D models, designed animations, developed gameplay mechanics, and handled the overall technical implementation. 
+      Watch the playlist below to see the complete project showcase and development process.
+    </p>
+    <a href="https://www.youtube.com/playlist?list=PLJqgAlQY92wBL4NHupxFci5HX11edLQ0M" target="_blank" class="btn game-project-cta">
+      <i class="fab fa-youtube"></i>View Game Playlist
+    </a>
+
+    <div class="awards-section">
+      <h4 class="portfolio-category">Award</h4>
+      <div class="awards-container">
+        <div class="award-card">
+          <div class="award-image-container">
             <img src="award/154d0c62-6f2d-4f46-9757-e6371fba9a48-removebg-preview.png" alt="Award 2025">
           </div>
-          <h4 class="mc-award-title">Best Research Presenter</h4>
-          <p class="mc-award-year">2025</p>
+          <h4 class="award-title">Best Research Presenter</h4>
+          <p class="award-year">2025</p>
         </div>
       </div>
-
-    </div>
-    <div class="mc-screen-bottom-bar">
-      <button class="mc-btn" data-goto="screen-worlds">Done</button>
     </div>
   </div>
-  <div class="mc-dirt-bar"></div>
-</div>
 
-<!-- ========== SCREEN: CONTACT ========== -->
-<div id="screen-contact" class="mc-screen">
-  <div class="mc-screen-inner mc-content-screen">
-    <h2 class="mc-screen-title">Contact Me</h2>
-    <div class="mc-content-body mc-contact-body">
-      <p class="mc-contact-sub">Reach out for collaborations or freelance projects!</p>
-
-      <div class="mc-contact-grid">
-        <div class="mc-sign-box">
-          <i class="fas fa-envelope"></i>
-          <h4>Email</h4>
-          <p>samueltumacder38@gmail.com</p>
-        </div>
-        <div class="mc-sign-box">
-          <i class="fas fa-phone"></i>
-          <h4>Phone</h4>
-          <p>+63 991 383 5881</p>
-        </div>
-        <div class="mc-sign-box">
-          <i class="fas fa-map-marker-alt"></i>
-          <h4>Location</h4>
-          <p>Muntinlupa, Philippines</p>
-        </div>
-      </div>
-
-      <div class="mc-socials-row">
-        <a href="https://www.facebook.com/samuelangelo.tumacder/" title="Facebook" target="_blank" class="mc-btn"><i class="fab fa-facebook-f"></i> Facebook</a>
-        <a href="https://www.linkedin.com/in/samuel-tumacder-9ab697377/" title="LinkedIn" target="_blank" class="mc-btn"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
-      </div>
+  <h3 class="tools-title">Tools I Use</h3>
+  <div class="tool-grid">
+    <div class="tool-card" role="article" aria-label="Maya - 3D Modeling">
+      <img src="award/maya.png" alt="Maya Logo" class="tool-img">
+      <h4>Maya</h4>
+      <p>3D Modeling</p>
     </div>
-    <div class="mc-screen-bottom-bar">
-      <button class="mc-btn" data-goto="screen-title">Done</button>
+
+    <div class="tool-card" role="article" aria-label="PixilArt - 2D Pixel Design">
+      <img src="https://art.pixilart.com/5e77f66827e6fa5.png" alt="PixilArt Logo" class="tool-img">
+      <h4>PixilArt</h4>
+      <p>2D pixels design</p>
     </div>
   </div>
-  <div class="mc-dirt-bar"></div>
-</div>
+  </div>
+</section>
 
-<!-- ========== MODAL (for image/video zoom) ========== -->
-<div id="portfolioModal" class="mc-modal">
-  <div class="mc-modal-content">
-    <div class="mc-modal-prev mc-modal-arrow" role="button" aria-label="Previous">&larr;</div>
-    <div class="mc-modal-next mc-modal-arrow" role="button" aria-label="Next">&rarr;</div>
-    <span class="mc-modal-close">&times;</span>
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact Me</h2>
+  <p>Reach out for collaborations or freelance projects!</p>
+  <div class="contact-container">
+    <div class="info-box">
+      <i class="fas fa-envelope"></i>
+      <h4>Email</h4>
+      <p>samueltumacder38@gmail.com</p>
+    </div>
+    <div class="info-box">
+      <i class="fas fa-phone"></i>
+      <h4>Phone</h4>
+      <p>+63 991 383 5881</p>
+    </div>
+    <div class="info-box">
+      <i class="fas fa-map-marker-alt"></i>
+      <h4>Location</h4>
+      <p>Muntinlupa, Philippines</p>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div id="portfolioModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-prev modal-arrow" role="button" aria-label="Previous image">&larr;</div>
+    <div class="modal-next modal-arrow" role="button" aria-label="Next image">&rarr;</div>
+    <span class="modal-close">&times;</span>
     <img id="modalImage" class="show" src="" alt="Portfolio project full view">
-    <video id="modalVideo" controls>
+    <video id="modalVideo" controls style="width: 100%; background: #000;">
       <source id="modalVideoSource" src="" type="video/mp4">
+      Your browser does not support the video tag. Please try using Chrome, Firefox, or Edge.
     </video>
-    <div class="mc-modal-info">
+    <div class="modal-info">
       <h4 id="modalTitle"></h4>
       <p id="modalDescription"></p>
     </div>
   </div>
 </div>
+
+<footer>
+  © 2025 Samuel Angelo Tumacder — All Rights Reserved
+</footer>
 
 <script src="main.js"></script>
 </body>
